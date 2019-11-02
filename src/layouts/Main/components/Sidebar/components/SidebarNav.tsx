@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     height: 24,
     display: 'flex',
     alignItems: 'center',
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(2)
   },
   active: {
     color: theme.palette.primary.main,
