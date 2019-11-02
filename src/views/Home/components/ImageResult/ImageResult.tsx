@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: theme.typography.pxToRem(15),
       fontWeight: theme.typography.fontWeightRegular,
     },
+    details: {
+      padding: theme.spacing(1)
+    }
   }),
 )
 
@@ -38,7 +41,7 @@ const ImageResult: React.FC<{image: UploadedImage, imageNumber: number}> = props
       >
         <Typography className={classes.heading}>Image {imageNumber}</Typography>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      <ExpansionPanelDetails className={classes.details}>
 
         <Grid container direction="row" spacing={1}>
 

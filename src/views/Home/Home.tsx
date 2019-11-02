@@ -18,7 +18,7 @@ import UploadedImage from './interfaces/UploadedImage';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    padding: theme.spacing(4)
+    padding: theme.spacing(2)
   }
 }));
 
@@ -73,7 +73,7 @@ const Home: React.FC = props => {
     <div className={classes.root}>
       <Grid
         container
-        spacing={4}
+        spacing={2}
       >
         <Grid
           item
