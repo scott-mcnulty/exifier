@@ -40,7 +40,7 @@ const ImageResult: React.FC<{image: UploadedImage, imageNumber: number}> = props
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
 
-        <Grid container direction="row">
+        <Grid container direction="row" spacing={1}>
 
           <Grid
             item

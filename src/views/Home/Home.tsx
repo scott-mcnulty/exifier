@@ -48,6 +48,7 @@ function processImages(images: UploadedImage[], setImagesCallback: any){
     // console.log(contents)
     setImagesCallback(contents.map(content => ({
       file: content.image,
+      preview: content.image.preview,
       exifData: content.exifData
     }))
     )
@@ -86,9 +87,8 @@ const Home: React.FC = props => {
           />
         </Grid>
 
-        {images.map((image: UploadedImage, index) => {
-          console.log(image)
-          return (<Grid
+        {images.map((image: UploadedImage, index) => (
+          <Grid
             key={`${image.file.name}-result`}
             item
             xs={12}
@@ -98,21 +98,7 @@ const Home: React.FC = props => {
           >
             <ImageResult image={image} imageNumber={index + 1}/>
           </Grid>
-          )
-        })}
-
-        {/* {images.map((image: UploadedImage, index) => (
-          <Grid
-            key={`${image.name}-result`}
-            item
-            xs={12}
-            sm={12}
-            lg={12}
-            xl={12}
-          >
-            <ImageResult image={image} imageNumber={index + 1}/>
-          </Grid>
-        ))} */}
+        ))}
 
       </Grid>
     </div>
