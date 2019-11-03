@@ -4,6 +4,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
+import {
+    ImageDetailsTable
+} from './components';
+
 import UploadedImage from '../../../../interfaces/UploadedImage';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -12,7 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
         padding: theme.spacing(2),
     },
     content: {
-
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -30,6 +33,8 @@ const ImageDetails: React.FC<{image: UploadedImage}> = props => {
     // console.log(image.exifData)
     // alert(image.exifData)
 
+    console.log(image.exifData)
+    // console.log(image.exifData.ImageWidth)
     const info = !image.exifData ? "Could not read details from photo" : JSON.stringify(image.exifData)
     return (
         <Card>
@@ -37,13 +42,16 @@ const ImageDetails: React.FC<{image: UploadedImage}> = props => {
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                     Image Details
                 </Typography>
-                <div className={classes.content}>
+                {/* <div className={classes.content}> */}
 
-                <Typography variant="body2">
+            <ImageDetailsTable image={image}/>
+
+                {/* <Typography variant="body2">
                     {info}
-                </Typography>
-                </div>
+                </Typography> */}
+                {/* </div> */}
             </CardContent>
+
 
             {/* {Object.keys(image.exifData).map(key => {
                 return (

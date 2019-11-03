@@ -1,0 +1,1 @@
+export {default as ImageDetailsTable} from './ImageDetailsTable';
