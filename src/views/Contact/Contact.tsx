@@ -2,6 +2,10 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
+import {
+  EmailForm
+} from './components';
+
 const useStyles = makeStyles((theme: Theme) => ({
 root: {
     padding: theme.spacing(4)
@@ -24,9 +28,7 @@ const Contact: React.FC = () => {
           xl={3}
           xs={12}
         >
-          <Typography>
-            This is the contact page
-          </Typography>
+          <EmailForm />
         </Grid>
       </Grid>
     </div>
