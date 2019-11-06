@@ -1,18 +1,13 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import * as EXIF from "exif-js";
-
 
 import {
   ImageUpload,
-  ImageResult
+  ImageResult,
+  Blurb
 } from './components';
-import {
-  processImage,
-  readFile,
-  processImage2
-} from './ImageProcessing';
 import UploadedImage from './interfaces/UploadedImage';
 
 
@@ -32,8 +27,6 @@ function processImages(images: UploadedImage[], setImagesCallback: any){
       const reader = new FileReader();
       reader.readAsArrayBuffer(image);
 
-      // console.log(image)
-      // console.log(Object.assign({}, image))
       // Resolve the image with its EXIF data
       reader.onload = () => resolve({
         // ...image,
@@ -45,14 +38,11 @@ function processImages(images: UploadedImage[], setImagesCallback: any){
 
   // Wait until all reading is finished
   Promise.all(promises).then(contents => {
-    // console.log(contents)
     setImagesCallback(contents.map(content => ({
       file: content.image,
       preview: content.image.preview,
       exifData: content.exifData
-    }))
-    )
-    // setImagesCallback(contents)
+    })))
   })
 }
 
@@ -63,10 +53,7 @@ const Home: React.FC = props => {
   let [images, setImages] = React.useState([] as UploadedImage[]);
 
   const handleUploadedImages = (images: UploadedImage[]) => {
-    // console.log(images);
     processImages(images, setImages)
-    // console.log(images);
-
   }
 
   return (
@@ -86,6 +73,17 @@ const Home: React.FC = props => {
             handleUploadedImages={handleUploadedImages}
           />
         </Grid>
+
+        {images.length === 0 && 
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          lg={12}
+          xl={12}
+        >
+          <Blurb />
+        </Grid>}
 
         {images.map((image: UploadedImage, index) => (
           <Grid
