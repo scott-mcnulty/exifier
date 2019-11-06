@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      textAlign: 'center',
       borderStyle: 'dashed',
       border: '3px gray',
       '&:hover': {
@@ -49,8 +50,8 @@ const Dropzone: React.FC<{handleUploadedImages: Function}> = props => {
       <input {...getInputProps()} />
       {
         isDragActive ?
-          <Typography>Drop the files here...</Typography> :
-          <Typography>Click to upload or drop files here</Typography>
+          <Typography>Drop the images here...</Typography> :
+          <Typography>Click here to select images or drag and drop files directly</Typography>
       }
     </div>
   )

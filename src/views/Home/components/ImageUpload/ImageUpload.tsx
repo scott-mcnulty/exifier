@@ -26,23 +26,9 @@ const ImageUpload: React.FC<{handleUploadedImages: Function}> = (props) => {
 
     return (
         <Card className={classes.card}>
-
             <Dropzone
                 handleUploadedImages={handleUploadedImages}
             />
-            
-            {/* <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-            <label htmlFor="icon-button-file">
-                <Button
-                    color="primary"
-                    variant="contained"
-                    // className={classes.button}
-                    aria-label="upload picture"
-                    component="span"
-                >
-                    upload jpeg image
-                </Button>
-            </label> */}
         </Card>
     )
 }
